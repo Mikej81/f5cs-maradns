@@ -2,7 +2,7 @@
 
 export DIR = $(shell pwd)
 export WORK_DIR = $(shell dirname ${DIR})
-export CONTAINER_IMAGE = 'maradns'
+export CONTAINER_IMAGE = 'maradns-f5cs'
 
 run: build shell
 

@@ -1,7 +1,7 @@
 FROM ubuntu:16.04 as base
 
 LABEL Author="michael@f5.com"
-LABEL System="MaraDNS"
+
 LABEL UseCase="Primary DNS in a container."
 LABEL description="Primary DNS with MaraDNS in a container, configured to \
     allow zone transfers to F5 Cloud Service DNS."
