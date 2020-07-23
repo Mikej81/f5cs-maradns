@@ -15,10 +15,17 @@ shell:
 
 deadwood:
 	@echo "Deadwood Server"
-	@docker run --rm -it -p 53:53/udp -v ${DIR}/zones:/etc/maradns ${CONTAINER_IMAGE} \
+	@docker run -d -p 53:53/udp --restart unless-stopped -v ${DIR}/zones:/etc/maradns ${CONTAINER_IMAGE} \
 	sh -c "/usr/sbin/deadwood >> /etc/maradns/logger/deadwood.log"
 
 maradns:
 	@echo "MaraDNS Server"
-	@docker run --rm -it -p 53:53/udp -v ${DIR}/zones:/etc/maradns ${CONTAINER_IMAGE} \
+	@docker run -d -p 53:53/udp --restart unless-stopped -v ${DIR}/zones:/etc/maradns ${CONTAINER_IMAGE} \
 	sh -c "/usr/sbin/maradns >> /etc/maradns/logger/maradns.log"
+
+destruction:
+	@echo "Stopping & Deleting all Docker Images and Logs"
+	@docker stop $$(docker ps -aq)
+	@docker rm $$(docker ps -aq)
+	@docker rmi $$(docker images -q)
+	@rm -rf ./zones/logger/*.log

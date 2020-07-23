@@ -1,8 +1,5 @@
 csv1 = {}
-csv1["f5govse.com."] = "db.f5govse.com"
-
-# csv2 = {}
-# csv2["f5govse.com."] = "db.f5govse.com"
+csv1["example.com."] = "db.example.com"
 
 bind_address = "0.0.0.0"
 
@@ -93,7 +90,9 @@ ipv4_alias["opennic"] = "131.161.247.226,209.151.84.102,64.247.218.140,64.247.21
 # transfers
 # ipv4_alias["office"] = "10.1.1.1/24"
 # ipv4_alias["home"] = "10.100.100.100/255.255.255.224"
+ipv4_alias["f5cs"] = "18.209.182.68,3.93.134.165, 3.94.223.31"
 # zone_transfer_acl = "office,home"
+zone_transfer_acl = "f5cs"
 
 # If you want to enable recursion on the loopback interface, uncomment
 # the relevent lines in the following section
@@ -102,7 +101,7 @@ ipv4_alias["opennic"] = "131.161.247.226,209.151.84.102,64.247.218.140,64.247.21
 # is identical to that of "zone_transfer_acl", including ipv4_alias support
 
 # ipv4_alias["localhost"] = "127.0.0.0/8"
-# recursive_acl = "localhost"
+# recursive_acl = "0.0.0.0/0"
 
 # Random seed file: The file from which we read 16 bytes from to get the
 # 128-bit random Rijndael key.  This is ideally a file which is a good source
@@ -172,6 +171,3 @@ ipv4_alias["opennic"] = "131.161.247.226,209.151.84.102,64.247.218.140,64.247.21
 # MaraDNS will process recursive queries when a DNS server is not 
 # responding to DNS queries.  The default value is two seconds.
 # timeout_seconds = 2
-
-
-# And that does it for the caching at this point
