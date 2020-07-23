@@ -8,8 +8,6 @@ ARG DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update -y \
     && apt-get upgrade -y \
-    && apt-get install nano -y \
-    && apt-get install dnsutils -y \
     && apt-get install --no-install-recommends apt-utils -y \
     && apt-get install maradns maradns-deadwood -y
 
