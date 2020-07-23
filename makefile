@@ -11,16 +11,16 @@ build:
 
 shell:
 	@echo "maradns shell ${WORK_DIR}"
-	@docker run --rm -it -p 53:53/udp --volume ${DIR}:/root -v ${DIR}/zones:/etc/maradns ${CONTAINER_IMAGE}
+	@docker run --rm -it -p 53:53/udp -p 53:53/tcp --volume ${DIR}:/root -v ${DIR}/zones:/etc/maradns ${CONTAINER_IMAGE}
 
 deadwood:
 	@echo "Deadwood Server"
-	@docker run -d -p 53:53/udp --restart unless-stopped -v ${DIR}/zones:/etc/maradns ${CONTAINER_IMAGE} \
+	@docker run -d -p 53:53/udp -p 53:53/tcp --restart unless-stopped -v ${DIR}/zones:/etc/maradns ${CONTAINER_IMAGE} \
 	sh -c "/usr/sbin/deadwood >> /etc/maradns/logger/deadwood.log"
 
 maradns:
 	@echo "MaraDNS Server"
-	@docker run -d -p 53:53/udp --restart unless-stopped -v ${DIR}/zones:/etc/maradns ${CONTAINER_IMAGE} \
+	@docker run -d -p 53:53/udp -p 53:53/tcp --restart unless-stopped -v ${DIR}/zones:/etc/maradns ${CONTAINER_IMAGE} \
 	sh -c "/usr/sbin/maradns >> /etc/maradns/logger/maradns.log"
 
 destruction:

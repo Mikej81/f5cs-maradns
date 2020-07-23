@@ -14,4 +14,5 @@ RUN apt-get update -y \
 COPY mararc /etc/mararc
 
 EXPOSE 53/udp
+EXPOSE 53/tcp
 CMD ["bash"]
