@@ -1,5 +1,4 @@
-# docker-maradns
-MaraDNS Server in Docker
+# MaraDNS Server in Docker
 
 Configured to allow zone transferes to F5 Cloud Services DNS.
 
@@ -26,6 +25,7 @@ make deadwood
 ```
 
 * MaraDNS Primary and Recursive
+
 ```bash
 make maradns
 ```
