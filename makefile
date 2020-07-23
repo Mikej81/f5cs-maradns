@@ -25,7 +25,7 @@ maradns:
 
 destruction:
 	@echo "Stopping & Deleting all Docker Images and Logs"
-	@docker stop $$(docker ps -aq)
-	@docker rm $$(docker ps -aq)
-	@docker rmi $$(docker images -q)
+	@docker stop $(docker ps -aq)
+	@docker rm $(docker ps -aq)
+	@docker rmi $(docker images -q)
 	@rm -rf ./zones/logger/*.log
